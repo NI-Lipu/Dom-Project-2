@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom-Project-1</title>
+
+  <!-- Tailwind and daisyUI Link -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script> 
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <header class="flex items-center w-10/12 mx-auto my-10">
+    <img class="mr-3 h-20" src="images/expenses.png" alt="">
+    <nav class="text-center text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-blue-500 to-green-500">Programmer Expenses Assistant</nav>
+  </header>
+
+  <main class="w-10/12 mx-auto mt-10">
+    
+    <!-- Switch Button -->
+    <div class="flex justify-center">
+      <button id="btn-assistant" class="text-white rounded-l-lg text-xl font-bold text-center py-2 w-1/2 bg-gradient-to-r from-blue-500 to-green-500">Assistant</button>
+      <button id="btn-history" class="text-gray-500 bg-slate-200 rounded-r-lg text-xl font-bold text-center py-2 w-1/2">History</button>
+    </div>
+
+    <!-- Calculate section -->
+    <section id="calculate-section" class="my-10">
+        <!-- Calculate Income and Expense -->
+        <div>
+            <!-- Income Field-->
+             <div>
+              <div class="flex items-center">
+                <img class="w-7 mr-2" src="images/income.png" alt="">
+                <p class="text-xl font-bold">Income</p>
+              </div>
+              <input class="border-2 border-gray-500 rounded-lg pl-3 py-1 w-full mt-4" type="number" name="" id="income-field" placeholder="Income">
+             </div>
+
+             <!-- Expense Field -->
+             <div class="mt-10">
+              <div class="flex items-center mb-10">
+                <img class="w-7 mr-2" src="images/expense.png" alt="">
+                <p class="text-xl font-bold">Expense</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                
+                <div>
+                  <div class="flex items-center mb-4">
+                    <img class="w-7 mr-2" src="images/software.png" alt="">
+                    <p class="text-xl font-medium text-gray-500">Software</p>
+                  </div>
+                  <input class="w-full border-2 border-gray-500 rounded-lg pl-3 py-1" type="number" name="" id="software-field" placeholder="Expenses">
+                </div>
+
+                <div>
+                  <div class="flex items-center mb-4">
+                    <img class="w-7 mr-2" src="images/courses.png" alt="">
+                    <p class="text-xl font-medium text-gray-500">Courses</p>
+                  </div>
+                  <input class=" w-full border-2 border-gray-500 rounded-lg pl-3 py-1" type="number" name="" id="courses-field" placeholder="Expenses">
+                </div>
+
+                <div>
+                  <div class="flex items-center mb-4">
+                    <img class="w-7 mr-2" src="images/internat.png" alt="">
+                    <p class="text-xl font-medium text-gray-500">Internat</p>
+                  </div>
+                  <input class=" w-full border-2 border-gray-500 rounded-lg pl-3 py-1" type="number" name="" id="internat-field" placeholder="Expenses">
+                </div>
+                
+              </div>
+
+              <!-- Calculate Btn -->
+               <button id="btn-calculate" class="text-xl text-white font-bold text-center py-2 w-full border-2 border-gray-500 rounded-lg mt-5 bg-gradient-to-r from-blue-500 to-green-500">Calculate</button>
+        </div>
+
+        <!-- Calculate Savings -->
+        <div class="mt-10">
+          <div class="flex items-center mb-4">
+            <img class="w-7 mr-2" src="images/savings.png" alt="">
+            <p class="text-xl font-bold">Savings</p>
+          </div>
+        </div>
+        <input class=" w-full border-2 border-gray-500 rounded-lg pl-3 py-1" type="number" name="" id="savings-percentage" placeholder="Savings(%)">
+
+        <!-- Calculate Savings Btn -->
+        <button id="btn-calculate-savings" class="text-xl text-white font-bold text-center py-2 w-full border-2 border-gray-500 rounded-lg mt-5 bg-gradient-to-r from-blue-500 to-green-500">Calculate Savings</button>
+    </section>
+
+      <!-- Show Calculate Result -->
+    <section id="show-calculate" class="hidden w-full mx-auto my-10 border-2 border-gray-500 rounded-lg">
+        <div class="flex justify-center gap-2 my-4">
+          <div class="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-green-500"></div>
+          <h2 class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">Result Summary</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 w-11/12 mx-auto mb-5">
+          <div class="border-l-4 border-blue-500 rounded-lg pl-3 py-4">
+            <p class="font-medium">Total Expenses</p>
+            <p id="total-expenses" class="font-extrabold">$00</p>
+          </div>
+          <div class="border-l-4 border-green-500 rounded-lg pl-3 py-4">
+            <p class="font-medium">Balance</p>
+            <p id="balance-amount" class="font-extrabold">$00</p>
+          </div>
+          <div class="border-l-4 border-orange-500 rounded-lg pl-3 py-4">
+            <p class="font-medium">Savings Amount</p>
+            <p id="savings-amount" class="font-extrabold">$00</p>
+          </div>
+          <div class="border-l-4 border-yellow-500 rounded-lg pl-3 py-4">
+            <p class="font-medium">Remaining Balance</p>
+            <p id="remaining-balance" class="font-extrabold">$00</p>
+          </div>
+        </div>
+        
+    </section>
+
+    <!-- Expense History -->
+    <section id="expense-history" class="hidden bg-sky-200 p-2 rounded-lg">
+      <div class="flex justify-center gap-2 my-4">
+        <div class="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-green-500"></div>
+        <h2 class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">Expense History</h2>
+      </div>
+      <div id="history-container" class="grid grid-cols-2 gap-2">
+        
+        
+
+      </div>
+    </section>
+
+  </main>
+
+ <script src="js/index.js"></script>
+</body>
+</html>
